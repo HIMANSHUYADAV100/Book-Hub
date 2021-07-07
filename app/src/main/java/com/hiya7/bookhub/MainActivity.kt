@@ -19,6 +19,8 @@ lateinit var toolbar: Toolbar
 lateinit var frameLayout: FrameLayout
 lateinit var navigationView: NavigationView
 
+var previousMenuItem : MenuItem? = null
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +46,14 @@ class MainActivity : AppCompatActivity() {
         drawerLayout.addDrawerListener(actionBarDrawerToggle)
         actionBarDrawerToggle.syncState()
         navigationView.setNavigationItemSelectedListener {
+
+            if(previousMenuItem != null){
+                previousMenuItem?.isChecked=false
+            }
+
+            it.isCheckable=true
+            it.isChecked=true
+            previousMenuItem = it
 
             when (it.itemId) {
                 R.id.dashboard -> {
