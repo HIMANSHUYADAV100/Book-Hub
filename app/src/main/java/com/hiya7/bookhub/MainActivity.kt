@@ -122,6 +122,7 @@ class MainActivity : AppCompatActivity() {
         transaction.commit()
 
         supportActionBar?.title = "Dashboard"
+        navigationView.setCheckedItem(R.id.dashboard)
     }
 
     override fun onBackPressed() {
