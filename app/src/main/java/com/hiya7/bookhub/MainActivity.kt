@@ -32,6 +32,13 @@ class MainActivity : AppCompatActivity() {
 
         setUpToolbar()
 
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frame, DashboardFragment())
+            .addToBackStack("Dashboard")
+            .commit()
+
+        supportActionBar?.title = "Dashboard"
+
         val actionBarDrawerToggle = ActionBarDrawerToggle(
             this@MainActivity,
             drawerLayout,
@@ -47,7 +54,10 @@ class MainActivity : AppCompatActivity() {
                 R.id.dashboard -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.frame, DashboardFragment())
+                        .addToBackStack("Dashboard")
                         .commit()
+
+                    supportActionBar?.title = "Dashboard"
 
                     drawerLayout.closeDrawers()
 
@@ -55,21 +65,30 @@ class MainActivity : AppCompatActivity() {
                 R.id.favourites -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.frame, FavouritesFragment())
+                        .addToBackStack("Favourites")
                         .commit()
+
+                    supportActionBar?.title = "Favourites"
 
                     drawerLayout.closeDrawers()
                 }
                 R.id.profile -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.frame, ProfileFragment())
+                        .addToBackStack("Profile")
                         .commit()
+
+                    supportActionBar?.title = "Profile"
 
                     drawerLayout.closeDrawers()
                 }
                 R.id.about_app -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.frame, AboutAppFragment())
+                        .addToBackStack("About App")
                         .commit()
+
+                    supportActionBar?.title = "About App"
 
                     drawerLayout.closeDrawers()
                 }
