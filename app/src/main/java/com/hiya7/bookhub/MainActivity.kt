@@ -32,12 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         setUpToolbar()
 
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.frame, DashboardFragment())
-            .addToBackStack("Dashboard")
-            .commit()
-
-        supportActionBar?.title = "Dashboard"
+        openDashboard()
 
         val actionBarDrawerToggle = ActionBarDrawerToggle(
             this@MainActivity,
@@ -118,6 +113,15 @@ class MainActivity : AppCompatActivity() {
 
 
         return super.onOptionsItemSelected(item)
+    }
+
+    fun openDashboard(){
+        val fragment = DashboardFragment()
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.frame, fragment)
+        transaction.commit()
+
+        supportActionBar?.title = "Dashboard"
     }
 
 
