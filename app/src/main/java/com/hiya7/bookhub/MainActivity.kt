@@ -53,16 +53,25 @@ class MainActivity : AppCompatActivity() {
 
                 }
                 R.id.favourites -> {
-                    Toast.makeText(this@MainActivity, "Clicked on Favourites", Toast.LENGTH_SHORT)
-                        .show()
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.frame, FavouritesFragment())
+                        .commit()
+
+                    drawerLayout.closeDrawers()
                 }
                 R.id.profile -> {
-                    Toast.makeText(this@MainActivity, "Clicked on Profile", Toast.LENGTH_SHORT)
-                        .show()
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.frame, ProfileFragment())
+                        .commit()
+
+                    drawerLayout.closeDrawers()
                 }
                 R.id.about_app -> {
-                    Toast.makeText(this@MainActivity, "Clicked on About App", Toast.LENGTH_SHORT)
-                        .show()
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.frame, AboutAppFragment())
+                        .commit()
+
+                    drawerLayout.closeDrawers()
                 }
             }
 
