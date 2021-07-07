@@ -47,14 +47,8 @@ class MainActivity : AppCompatActivity() {
 
             when (it.itemId) {
                 R.id.dashboard -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.frame, DashboardFragment())
-                        .commit()
-
-                    supportActionBar?.title = "Dashboard"
-
+                    openDashboard()
                     drawerLayout.closeDrawers()
-
                 }
                 R.id.favourites -> {
                     supportFragmentManager.beginTransaction()
