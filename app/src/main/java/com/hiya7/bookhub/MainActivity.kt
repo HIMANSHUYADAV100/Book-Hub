@@ -49,7 +49,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.dashboard -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.frame, DashboardFragment())
-                        .addToBackStack("Dashboard")
                         .commit()
 
                     supportActionBar?.title = "Dashboard"
@@ -60,7 +59,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.favourites -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.frame, FavouritesFragment())
-                        .addToBackStack("Favourites")
                         .commit()
 
                     supportActionBar?.title = "Favourites"
@@ -70,7 +68,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.profile -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.frame, ProfileFragment())
-                        .addToBackStack("Profile")
                         .commit()
 
                     supportActionBar?.title = "Profile"
@@ -80,7 +77,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.about_app -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.frame, AboutAppFragment())
-                        .addToBackStack("About App")
                         .commit()
 
                     supportActionBar?.title = "About App"
@@ -115,7 +111,7 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    fun openDashboard(){
+    fun openDashboard() {
         val fragment = DashboardFragment()
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.frame, fragment)
