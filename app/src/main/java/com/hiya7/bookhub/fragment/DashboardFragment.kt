@@ -17,6 +17,29 @@ class DashboardFragment : Fragment() {
 
     lateinit var layoutManager: RecyclerView.LayoutManager
 
+    val priceList = arrayListOf(
+        "299",
+        "456",
+        "299",
+        "299",
+        "485",
+        "299",
+        "600",
+        "299"
+    )
+
+    val authorList = arrayListOf(
+        "Archery",
+        "Fishing",
+        "Hiking",
+        "Bowling",
+        "Tim",
+        "Max",
+        "Ronny",
+        "Rhea"
+    )
+
+
     val bookList = arrayListOf(
         "Harry Potter",
         "A Brief History of time",
