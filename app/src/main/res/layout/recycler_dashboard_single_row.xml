@@ -5,65 +5,60 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="6dp"
-    android:padding="5dp"
-    >
+    android:padding="5dp">
 
     <ImageView
         android:id="@+id/imgAndy"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:src="@mipmap/ic_launcher"
         android:fadingEdge="vertical|horizontal"
-        />
+        android:src="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/txtRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
+        android:layout_toRightOf="@id/imgAndy"
         android:padding="2dp"
         android:text="List Item"
         android:textColor="@color/black"
         android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_toRightOf="@id/imgAndy"
-        />
+        android:textStyle="bold" />
+
     <TextView
         android:id="@+id/txtAuthor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#555555"
-        android:text="Author"
         android:layout_below="@id/txtRecyclerView"
-        android:layout_toRightOf="@id/imgAndy"
         android:layout_marginHorizontal="10dp"
-        android:textStyle="italic|bold"
-        />
+        android:layout_toRightOf="@id/imgAndy"
+        android:text="Author"
+        android:textColor="#555555"
+        android:textStyle="italic|bold" />
 
     <TextView
         android:id="@+id/txtRupeeSign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/txtAuthor"
+        android:layout_marginLeft="30dp"
         android:layout_toRightOf="@id/imgAndy"
         android:text="₹"
-        android:textSize="19sp"
         android:textColor="@color/Green"
-        android:layout_marginLeft="30dp"
-        />
+        android:textSize="19sp" />
 
     <TextView
         android:id="@+id/txtPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/txtAuthor"
+        android:layout_marginLeft="7dp"
         android:layout_toRightOf="@id/txtRupeeSign"
         android:text="1000"
-        android:textSize="18sp"
-        android:textStyle="italic"
         android:textColor="@color/Green"
-        android:layout_marginLeft="7dp"
-         />
+        android:textSize="18sp"
+        android:textStyle="italic" />
 
 
 </RelativeLayout>
