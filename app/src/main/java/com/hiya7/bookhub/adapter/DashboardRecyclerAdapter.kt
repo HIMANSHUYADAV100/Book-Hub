@@ -17,7 +17,7 @@ class DashboardRecyclerAdapter(val context:Context, val itemList : ArrayList<Str
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DashboardViewHolder {
         // responsible for creating the first n holders
-        val view = LayoutInflater.from(parent.context).inflate(R.id.recycler_dashboard_single_row, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.recycler_dashboard_single_row, parent, false)
 
         return DashboardViewHolder(view)
     }
