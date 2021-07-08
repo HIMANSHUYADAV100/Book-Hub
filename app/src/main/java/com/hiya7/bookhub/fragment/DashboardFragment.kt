@@ -21,6 +21,10 @@ class DashboardFragment : Fragment() {
         "Harry Potter",
         "A Brief History of time",
         "Thunderbird",
+        "The Epic Of Gilgamesh",
+        "The Divine Comedy",
+        "Things Fall Apart",
+        "Fairy tales",
         "The Last Letter"
     )
 
