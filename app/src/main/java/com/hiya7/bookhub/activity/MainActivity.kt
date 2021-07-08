@@ -1,16 +1,20 @@
-package com.hiya7.bookhub
+package com.hiya7.bookhub.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.FrameLayout
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
+import com.hiya7.bookhub.*
+import com.hiya7.bookhub.fragment.AboutAppFragment
+import com.hiya7.bookhub.fragment.DashboardFragment
+import com.hiya7.bookhub.fragment.FavouritesFragment
+import com.hiya7.bookhub.fragment.ProfileFragment
 
 
 lateinit var drawerLayout: DrawerLayout
@@ -27,10 +31,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         drawerLayout = findViewById(R.id.drawerLayout)
-        coordinatorLayout = findViewById(R.id.coordinatorLayout)
+        coordinatorLayout = findViewById(
+            R.id.coordinatorLayout
+        )
         toolbar = findViewById(R.id.toolbar)
         frameLayout = findViewById(R.id.frame)
-        navigationView = findViewById(R.id.navigationView)
+        navigationView = findViewById(
+            R.id.navigationView
+        )
 
         setUpToolbar()
 
@@ -62,7 +70,10 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.favourites -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.frame, FavouritesFragment())
+                        .replace(
+                            R.id.frame,
+                            FavouritesFragment()
+                        )
                         .commit()
 
                     supportActionBar?.title = "Favourites"
@@ -71,7 +82,10 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.profile -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.frame, ProfileFragment())
+                        .replace(
+                            R.id.frame,
+                            ProfileFragment()
+                        )
                         .commit()
 
                     supportActionBar?.title = "Profile"
@@ -80,7 +94,10 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.about_app -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.frame, AboutAppFragment())
+                        .replace(
+                            R.id.frame,
+                            AboutAppFragment()
+                        )
                         .commit()
 
                     supportActionBar?.title = "About App"
@@ -122,7 +139,9 @@ class MainActivity : AppCompatActivity() {
         transaction.commit()
 
         supportActionBar?.title = "Dashboard"
-        navigationView.setCheckedItem(R.id.dashboard)
+        navigationView.setCheckedItem(
+            R.id.dashboard
+        )
     }
 
     override fun onBackPressed() {
