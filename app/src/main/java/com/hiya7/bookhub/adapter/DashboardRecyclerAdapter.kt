@@ -8,11 +8,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.hiya7.bookhub.R
 
-class DashboardRecyclerAdapter(val context:Context, val itemList : ArrayList<String>) : RecyclerView.Adapter<DashboardRecyclerAdapter.DashboardViewHolder>(){
+class DashboardRecyclerAdapter(val context:Context, val itemList : ArrayList<String>, val authList: ArrayList<String>, val priceView: ArrayList<String>) : RecyclerView.Adapter<DashboardRecyclerAdapter.DashboardViewHolder>(){
 
     class DashboardViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView = view.findViewById(R.id.txtRecyclerView)
-
+        val authView: TextView = view.findViewById(R.id.txtAuthor)
+        val priceView: TextView = view.findViewById(R.id.txtPrice)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DashboardViewHolder {
@@ -28,7 +29,12 @@ class DashboardRecyclerAdapter(val context:Context, val itemList : ArrayList<Str
 
     override fun onBindViewHolder(holder: DashboardViewHolder, position: Int) {
         val text = itemList[position]
+        val auth = authList[position]
+        val price= priceView[position]
+
         holder.textView.text = text
+        holder.authView.text = auth
+        holder.priceView.text= price
     }
 
 }

@@ -64,7 +64,9 @@ class DashboardFragment : Fragment() {
         layoutManager = LinearLayoutManager(activity)
         recyclerAdapter = DashboardRecyclerAdapter(
             activity as Context,
-            bookList
+            bookList,
+            authorList,
+            priceList
         )
 
         recyclerDashboard.adapter = recyclerAdapter
