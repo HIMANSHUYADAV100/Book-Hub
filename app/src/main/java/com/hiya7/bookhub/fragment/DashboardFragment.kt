@@ -6,16 +6,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.hiya7.bookhub.R
 import com.hiya7.bookhub.adapter.DashboardRecyclerAdapter
 import com.hiya7.bookhub.model.Book
+import com.hiya7.bookhub.util.ConnectionManager
 
 class DashboardFragment : Fragment() {
 
     lateinit var recyclerDashboard: RecyclerView
+
+    lateinit var btnCheckInternet: Button
 
     lateinit var layoutManager: RecyclerView.LayoutManager
 
@@ -74,6 +78,17 @@ class DashboardFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_dashboard, container, false)
 
         recyclerDashboard = view.findViewById(R.id.recyclerDashboard)
+
+        btnCheckInternet = view.findViewById(R.id.btnCheckInternet)
+
+        btnCheckInternet.setOnClickListener(
+            if(ConnectionManager().checkConnectivity(activity as Context)){
+                // Internet is available
+            }else{
+                // Internet is not available
+            }
+        )
+
         layoutManager = LinearLayoutManager(activity)
         recyclerAdapter = DashboardRecyclerAdapter(
             activity as Context,
