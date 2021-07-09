@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RelativeLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.hiya7.bookhub.R
 import com.hiya7.bookhub.model.Book
@@ -17,6 +19,9 @@ class DashboardRecyclerAdapter(val context:Context, val itemList : ArrayList<Boo
         val authView: TextView = view.findViewById(R.id.txtAuthor)
         val priceView: TextView = view.findViewById(R.id.txtPrice)
         val imageView: ImageView= view.findViewById(R.id.imgRecyclerView)
+
+        val llContent : RelativeLayout = view.findViewById(R.id.recycler_dashboard_single_row)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DashboardViewHolder {
@@ -40,6 +45,10 @@ class DashboardRecyclerAdapter(val context:Context, val itemList : ArrayList<Boo
         holder.authView.text = auth
         holder.priceView.text= price
         holder.imageView.setImageResource(image)
+
+        holder.llContent.setOnClickListener {
+            Toast.makeText(context, "Clicked on ${holder.textView.text}", Toast.LENGTH_SHORT).show()
+        }
     }
 
 }
