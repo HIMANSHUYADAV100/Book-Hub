@@ -102,21 +102,21 @@ class DashboardFragment : Fragment() {
 
             } else {
                 // Internet is not available
-                val dialog = AlertDialog.Builder(activity as Context)
+                val dialog2 = AlertDialog.Builder(activity as Context)
 
-                dialog.setTitle("Error")
-                dialog.setMessage("Internet Connection is NOT Found")
+                dialog2.setTitle("Error")
+                dialog2.setMessage("Internet Connection is NOT Found")
 
-                dialog.setPositiveButton("Ok") { text, listener ->
+                dialog2.setPositiveButton("Ok") { text, listener ->
                     // Do Nothing
                 }
 
-                dialog.setNegativeButton("Cancel") { text, listener ->
+                dialog2.setNegativeButton("Cancel") { text, listener ->
                     // Do Nothing
                 }
 
-                dialog.create()
-                dialog.show()
+                dialog2.create()
+                dialog2.show()
             }
         }
 
