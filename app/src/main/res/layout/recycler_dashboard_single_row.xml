@@ -8,7 +8,7 @@
     android:padding="5dp">
 
     <ImageView
-        android:id="@+id/imgAndy"
+        android:id="@+id/imgRecyclerView"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:fadingEdge="vertical|horizontal"
@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
-        android:layout_toRightOf="@id/imgAndy"
+        android:layout_toRightOf="@id/imgRecyclerView"
         android:padding="2dp"
         android:text="List Item"
         android:textColor="@color/black"
@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/txtRecyclerView"
         android:layout_marginHorizontal="10dp"
-        android:layout_toRightOf="@id/imgAndy"
+        android:layout_toRightOf="@id/imgRecyclerView"
         android:text="Author"
         android:textColor="#555555"
         android:textStyle="italic|bold" />
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/txtAuthor"
         android:layout_marginLeft="30dp"
-        android:layout_toRightOf="@id/imgAndy"
+        android:layout_toRightOf="@id/imgRecyclerView"
         android:text="₹"
         android:textColor="@color/Green"
         android:textSize="19sp" />
