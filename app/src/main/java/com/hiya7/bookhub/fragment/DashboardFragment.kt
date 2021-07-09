@@ -82,36 +82,43 @@ class DashboardFragment : Fragment() {
 
         btnCheckInternet = view.findViewById(R.id.btnCheckInternet)
 
-        btnCheckInternet.setOnClickListener(
+        btnCheckInternet.setOnClickListener {
             if (ConnectionManager().checkConnectivity(activity as Context)) {
                 // Internet is available
                 val dialog = AlertDialog.Builder(activity as Context)
+
                 dialog.setTitle("Success")
                 dialog.setMessage("Internet Connection Found")
                 dialog.setPositiveButton("Ok") { text, listener ->
                     // Do Nothing
                 }
+
                 dialog.setNegativeButton("Cancel") { text, listener ->
                     // Do Nothing
                 }
+
                 dialog.create()
                 dialog.show()
 
             } else {
                 // Internet is not available
                 val dialog = AlertDialog.Builder(activity as Context)
+
                 dialog.setTitle("Error")
                 dialog.setMessage("Internet Connection is NOT Found")
+
                 dialog.setPositiveButton("Ok") { text, listener ->
                     // Do Nothing
                 }
+
                 dialog.setNegativeButton("Cancel") { text, listener ->
                     // Do Nothing
                 }
+
                 dialog.create()
                 dialog.show()
             }
-        )
+        }
 
         layoutManager = LinearLayoutManager(activity)
         recyclerAdapter = DashboardRecyclerAdapter(
