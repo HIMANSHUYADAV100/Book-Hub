@@ -1,5 +1,6 @@
 package com.hiya7.bookhub.fragment
 
+import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -60,14 +61,14 @@ class DashboardFragment : Fragment() {
     lateinit var recyclerAdapter: DashboardRecyclerAdapter
 
     val bookInfoList = arrayListOf<Book>(
-        Book("Harry Potter","J.K Rowling","1325","4.5",R.drawable.bmoon),
-        Book("A Brief History of time","Stephan Hawkings","4599","4.7",R.drawable.bmoon),
-        Book("Thunderbird","Iam Fleming","699","4.2",R.drawable.bmoon),
-        Book("The Epic Of Gilgamesh","Gangest Remi","1756","3.2",R.drawable.bmoon),
-        Book("The Divine Comedy","Dante Aleigrihi","950","3.7",R.drawable.bmoon),
-        Book("Things Fall Apart","George Pinglet","899","4.0",R.drawable.bmoon),
-        Book("Fairy tales","Peter Pan","2500","4.1",R.drawable.bmoon),
-        Book("The Last Letter","Enzo Ferrari","6550","4.5",R.drawable.bmoon)
+        Book("Harry Potter", "J.K Rowling", "1325", "4.5", R.drawable.bmoon),
+        Book("A Brief History of time", "Stephan Hawkings", "4599", "4.7", R.drawable.bmoon),
+        Book("Thunderbird", "Iam Fleming", "699", "4.2", R.drawable.bmoon),
+        Book("The Epic Of Gilgamesh", "Gangest Remi", "1756", "3.2", R.drawable.bmoon),
+        Book("The Divine Comedy", "Dante Aleigrihi", "950", "3.7", R.drawable.bmoon),
+        Book("Things Fall Apart", "George Pinglet", "899", "4.0", R.drawable.bmoon),
+        Book("Fairy tales", "Peter Pan", "2500", "4.1", R.drawable.bmoon),
+        Book("The Last Letter", "Enzo Ferrari", "6550", "4.5", R.drawable.bmoon)
     )
 
     override fun onCreateView(
@@ -82,10 +83,33 @@ class DashboardFragment : Fragment() {
         btnCheckInternet = view.findViewById(R.id.btnCheckInternet)
 
         btnCheckInternet.setOnClickListener(
-            if(ConnectionManager().checkConnectivity(activity as Context)){
+            if (ConnectionManager().checkConnectivity(activity as Context)) {
                 // Internet is available
-            }else{
+                val dialog = AlertDialog.Builder(activity as Context)
+                dialog.setTitle("Success")
+                dialog.setMessage("Internet Connection Found")
+                dialog.setPositiveButton("Ok") { text, listener ->
+                    // Do Nothing
+                }
+                dialog.setNegativeButton("Cancel") { text, listener ->
+                    // Do Nothing
+                }
+                dialog.create()
+                dialog.show()
+
+            } else {
                 // Internet is not available
+                val dialog = AlertDialog.Builder(activity as Context)
+                dialog.setTitle("Error")
+                dialog.setMessage("Internet Connection is NOT Found")
+                dialog.setPositiveButton("Ok") { text, listener ->
+                    // Do Nothing
+                }
+                dialog.setNegativeButton("Cancel") { text, listener ->
+                    // Do Nothing
+                }
+                dialog.create()
+                dialog.show()
             }
         )
 
