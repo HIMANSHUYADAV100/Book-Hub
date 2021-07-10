@@ -1,6 +1,7 @@
 package com.hiya7.bookhub.fragment
 
 import android.app.AlertDialog
+import android.app.DownloadManager
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,6 +12,11 @@ import android.widget.Button
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.RequestFuture
+import com.android.volley.toolbox.Volley
 import com.hiya7.bookhub.R
 import com.hiya7.bookhub.adapter.DashboardRecyclerAdapter
 import com.hiya7.bookhub.model.Book
@@ -135,6 +141,21 @@ class DashboardFragment : Fragment() {
                 (layoutManager as LinearLayoutManager).orientation
             )
         )
+
+        val queue = Volley.newRequestQueue(activity as Context)
+
+        val url = "http://13.235.250.119/vl/book/fetch_books/"
+
+        val jsonObjectRequest =
+            object : JsonObjectRequest(Request.Method.GET, url, null, Response.Listener {
+                // handle the resposne
+            }, Response.ErrorListener {
+
+                // handle the Errors
+
+            }) {
+
+            }
 
         return view
     }
