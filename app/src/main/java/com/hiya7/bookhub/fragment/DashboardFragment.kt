@@ -166,9 +166,9 @@ class DashboardFragment : Fragment() {
 
                     return headers
                 }
-
-
             }
+
+        queue.add(jsonObjectRequest)
 
         return view
     }
