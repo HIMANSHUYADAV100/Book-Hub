@@ -38,61 +38,15 @@ class DashboardFragment : Fragment() {
 
     lateinit var layoutManager: RecyclerView.LayoutManager
 
-  lateinit var progressLayout: RelativeLayout
+    lateinit var progressLayout: RelativeLayout
 
     lateinit var progressBar: ProgressBar
 
-/*
-    val priceList = arrayListOf(
-        "299",
-        "456",
-        "299",
-        "299",
-        "485",
-        "299",
-        "600",
-        "299"
-    )
 
-    val authorList = arrayListOf(
-        "Archery",
-        "Fishing",
-        "Hiking",
-        "Bowling",
-        "Tim",
-        "Max",
-        "Ronny",
-        "Rhea"
-    )
-
-
-    val bookList = arrayListOf(
-        "Harry Potter",
-        "A Brief History of time",
-        "Thunderbird",
-        "The Epic Of Gilgamesh",
-        "The Divine Comedy",
-        "Things Fall Apart",
-        "Fairy tales",
-        "The Last Letter"
-    )
-*/
     lateinit var recyclerAdapter: DashboardRecyclerAdapter
 
     var bookInfoList = arrayListOf<Book>()
 
-    /*
-    val bookInfoList = arrayListOf<Book>(
-        Book("Harry Potter", "J.K Rowling", "1325", "4.5", R.drawable.bmoon),
-        Book("A Brief History of time", "Stephan Hawkings", "4599", "4.7", R.drawable.bmoon),
-        Book("Thunderbird", "Iam Fleming", "699", "4.2", R.drawable.bmoon),
-        Book("The Epic Of Gilgamesh", "Gangest Remi", "1756", "3.2", R.drawable.bmoon),
-        Book("The Divine Comedy", "Dante Aleigrihi", "950", "3.7", R.drawable.bmoon),
-        Book("Things Fall Apart", "George Pinglet", "899", "4.0", R.drawable.bmoon),
-        Book("Fairy tales", "Peter Pan", "2500", "4.1", R.drawable.bmoon),
-        Book("The Last Letter", "Enzo Ferrari", "6550", "4.5", R.drawable.bmoon)
-    )
-*/
 
 
     override fun onCreateView(
@@ -104,51 +58,11 @@ class DashboardFragment : Fragment() {
 
         recyclerDashboard = view.findViewById(R.id.recyclerDashboard)
 
-        btnCheckInternet = view.findViewById(R.id.btnCheckInternet)
-
         progressLayout = view.findViewById(R.id.progressLayout)
 
         progressBar = view.findViewById(R.id.progressBar)
 
         progressLayout.visibility = View.VISIBLE
-
-        btnCheckInternet.setOnClickListener {
-            if (ConnectionManager().checkConnectivity(activity as Context)) {
-                // Internet is available
-                val dialog = AlertDialog.Builder(activity as Context)
-
-                dialog.setTitle("Success")
-                dialog.setMessage("Internet Connection Found")
-                dialog.setPositiveButton("Ok") { text, listener ->
-                    // Do Nothing
-                }
-
-                dialog.setNegativeButton("Cancel") { text, listener ->
-                    // Do Nothing
-                }
-
-                dialog.create()
-                dialog.show()
-
-            } else {
-                // Internet is not available
-                val dialog2 = AlertDialog.Builder(activity as Context)
-
-                dialog2.setTitle("Error")
-                dialog2.setMessage("Internet Connection is NOT Found")
-
-                dialog2.setPositiveButton("Ok") { text, listener ->
-                    // Do Nothing
-                }
-
-                dialog2.setNegativeButton("Cancel") { text, listener ->
-                    // Do Nothing
-                }
-
-                dialog2.create()
-                dialog2.show()
-            }
-        }
 
         layoutManager = LinearLayoutManager(activity)
 
@@ -208,15 +122,20 @@ class DashboardFragment : Fragment() {
                             ).show()
 
                         }
-                    }catch (e : JSONException){
-                        Toast.makeText(activity as Context, "Some unexpected Error Occured ! ", Toast.LENGTH_SHORT).show()
+                    } catch (e: JSONException) {
+                        Toast.makeText(
+                            activity as Context,
+                            "Some unexpected Error Occured ! ",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
 
 
                 }, Response.ErrorListener {
 
                     // handle the Errors
-                    Toast.makeText(activity as Context, "Volley Error Occured", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity as Context, "Volley Error Occured", Toast.LENGTH_SHORT)
+                        .show()
 
                 }) {
 
