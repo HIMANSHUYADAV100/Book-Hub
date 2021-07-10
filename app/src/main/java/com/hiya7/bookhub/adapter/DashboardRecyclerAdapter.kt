@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.hiya7.bookhub.R
 import com.hiya7.bookhub.model.Book
+import com.squareup.picasso.Picasso
 
 class DashboardRecyclerAdapter(val context:Context, val itemList : ArrayList<Book>) : RecyclerView.Adapter<DashboardRecyclerAdapter.DashboardViewHolder>(){
 
@@ -44,6 +45,7 @@ class DashboardRecyclerAdapter(val context:Context, val itemList : ArrayList<Boo
         holder.textView.text = text
         holder.authView.text = auth
         holder.priceView.text= price
+        Picasso.get().load(image).into(holder.imageView);
         //holder.imageView.setImageResource(image)
 
         holder.llContent.setOnClickListener {
