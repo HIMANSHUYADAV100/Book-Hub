@@ -44,7 +44,7 @@
         android:layout_below="@id/txtAuthor"
         android:layout_marginLeft="30dp"
         android:layout_toRightOf="@id/imgRecyclerView"
-        android:text="₹"
+        android:text=" "
         android:textColor="@color/Green"
         android:textSize="19sp" />
 
