@@ -34,8 +34,6 @@ class DashboardFragment : Fragment() {
 
     lateinit var recyclerDashboard: RecyclerView
 
-    lateinit var btnCheckInternet: Button
-
     lateinit var layoutManager: RecyclerView.LayoutManager
 
     lateinit var progressLayout: RelativeLayout
