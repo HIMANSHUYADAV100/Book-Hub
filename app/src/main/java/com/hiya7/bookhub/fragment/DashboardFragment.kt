@@ -12,6 +12,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ProgressBar
+import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -36,6 +38,11 @@ class DashboardFragment : Fragment() {
 
     lateinit var layoutManager: RecyclerView.LayoutManager
 
+  lateinit var progressLayout: RelativeLayout
+
+    lateinit var progressBar: ProgressBar
+
+/*
     val priceList = arrayListOf(
         "299",
         "456",
@@ -69,7 +76,7 @@ class DashboardFragment : Fragment() {
         "Fairy tales",
         "The Last Letter"
     )
-
+*/
     lateinit var recyclerAdapter: DashboardRecyclerAdapter
 
     var bookInfoList = arrayListOf<Book>()
@@ -98,6 +105,12 @@ class DashboardFragment : Fragment() {
         recyclerDashboard = view.findViewById(R.id.recyclerDashboard)
 
         btnCheckInternet = view.findViewById(R.id.btnCheckInternet)
+
+        progressLayout = view.findViewById(R.id.progressLayout)
+
+        progressBar = view.findViewById(R.id.progressBar)
+
+        progressLayout.visibility = View.VISIBLE
 
         btnCheckInternet.setOnClickListener {
             if (ConnectionManager().checkConnectivity(activity as Context)) {
@@ -149,6 +162,8 @@ class DashboardFragment : Fragment() {
                     // handle the resposne
 
                     try {
+
+                        progressLayout.visibility = View.GONE
 
                         val success = it.getBoolean("success")
 
