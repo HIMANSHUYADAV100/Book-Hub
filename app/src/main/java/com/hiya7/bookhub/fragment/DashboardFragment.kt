@@ -151,7 +151,6 @@ class DashboardFragment : Fragment() {
                     for (i in 0 until data.length()) {
                         val bookJsonObject = data.getJSONObject(i)
                         val bookObject = Book(
-                            bookJsonObject.getString("book_id"),
                             bookJsonObject.getString("name"),
                             bookJsonObject.getString("author"),
                             bookJsonObject.getString("price"),
