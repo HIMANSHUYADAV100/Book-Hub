@@ -66,6 +66,7 @@ class DashboardFragment : Fragment() {
 
     lateinit var recyclerAdapter: DashboardRecyclerAdapter
 
+    /*
     val bookInfoList = arrayListOf<Book>(
         Book("Harry Potter", "J.K Rowling", "1325", "4.5", R.drawable.bmoon),
         Book("A Brief History of time", "Stephan Hawkings", "4599", "4.7", R.drawable.bmoon),
@@ -76,6 +77,9 @@ class DashboardFragment : Fragment() {
         Book("Fairy tales", "Peter Pan", "2500", "4.1", R.drawable.bmoon),
         Book("The Last Letter", "Enzo Ferrari", "6550", "4.5", R.drawable.bmoon)
     )
+*/
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
