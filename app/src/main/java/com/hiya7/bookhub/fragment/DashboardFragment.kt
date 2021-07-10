@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -66,6 +67,8 @@ class DashboardFragment : Fragment() {
 
     lateinit var recyclerAdapter: DashboardRecyclerAdapter
 
+    var bookInfoList = arrayListOf<Book>()
+
     /*
     val bookInfoList = arrayListOf<Book>(
         Book("Harry Potter", "J.K Rowling", "1325", "4.5", R.drawable.bmoon),
@@ -78,7 +81,6 @@ class DashboardFragment : Fragment() {
         Book("The Last Letter", "Enzo Ferrari", "6550", "4.5", R.drawable.bmoon)
     )
 */
-
 
 
     override fun onCreateView(
@@ -131,20 +133,6 @@ class DashboardFragment : Fragment() {
         }
 
         layoutManager = LinearLayoutManager(activity)
-        recyclerAdapter = DashboardRecyclerAdapter(
-            activity as Context,
-            bookInfoList
-        )
-
-        recyclerDashboard.adapter = recyclerAdapter
-        recyclerDashboard.layoutManager = layoutManager
-
-        recyclerDashboard.addItemDecoration(
-            DividerItemDecoration(
-                recyclerDashboard.context,
-                (layoutManager as LinearLayoutManager).orientation
-            )
-        )
 
         val queue = Volley.newRequestQueue(activity as Context)
 
@@ -155,6 +143,47 @@ class DashboardFragment : Fragment() {
                 // handle the resposne
                 println("Response is $it")
 
+                val success = it.getBoolean("success")
+
+                if (success) {
+
+                    val data = it.getJSONArray("data")
+                    for (i in 0 until data.length()) {
+                        val bookJsonObject = data.getJSONObject(i)
+                        val bookObject = Book(
+                            bookJsonObject.getString("book_id"),
+                            bookJsonObject.getString("name"),
+                            bookJsonObject.getString("author"),
+                            bookJsonObject.getString("price"),
+                            bookJsonObject.getString("image")
+                        )
+
+                        bookInfoList.add(bookObject)
+
+                        recyclerAdapter = DashboardRecyclerAdapter(
+                            activity as Context,
+                            bookInfoList
+                        )
+
+                        recyclerDashboard.adapter = recyclerAdapter
+                        recyclerDashboard.layoutManager = layoutManager
+
+                        recyclerDashboard.addItemDecoration(
+                            DividerItemDecoration(
+                                recyclerDashboard.context,
+                                (layoutManager as LinearLayoutManager).orientation
+                            )
+                        )
+
+                    }
+
+                } else{
+
+                    Toast.makeText(activity as Context, "Some Error has Occured", Toast.LENGTH_SHORT).show()
+
+                }
+
+
             }, Response.ErrorListener {
 
                 // handle the Errors
@@ -164,7 +193,7 @@ class DashboardFragment : Fragment() {
 
                 override fun getHeaders(): MutableMap<String, String> {
 
-                    val headers = HashMap<String, String> ()
+                    val headers = HashMap<String, String>()
                     headers["Content-type"] = "application/json"
                     headers["token"] = "2774371f1180aa"
 

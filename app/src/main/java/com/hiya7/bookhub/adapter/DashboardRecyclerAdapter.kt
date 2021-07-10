@@ -44,7 +44,7 @@ class DashboardRecyclerAdapter(val context:Context, val itemList : ArrayList<Boo
         holder.textView.text = text
         holder.authView.text = auth
         holder.priceView.text= price
-        holder.imageView.setImageResource(image)
+        //holder.imageView.setImageResource(image)
 
         holder.llContent.setOnClickListener {
             Toast.makeText(context, "Clicked on ${holder.textView.text}", Toast.LENGTH_SHORT).show()
