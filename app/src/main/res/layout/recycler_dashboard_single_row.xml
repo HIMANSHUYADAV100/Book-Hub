@@ -1,64 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/recycler_dashboard_single_row"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="140dp"
     android:layout_margin="6dp"
-    android:padding="5dp"
-    >
+    android:background="@color/white">
 
-    <ImageView
-        android:id="@+id/imgRecyclerView"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:fadingEdge="vertical|horizontal"
-        android:src="@mipmap/ic_launcher" />
-
-    <TextView
-        android:id="@+id/txtRecyclerView"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/recycler_dashboard_single_row"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:layout_toRightOf="@id/imgRecyclerView"
-        android:padding="2dp"
-        android:text="List Item"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:layout_margin="6dp" >
 
-    <TextView
-        android:id="@+id/txtAuthor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/txtRecyclerView"
-        android:layout_marginHorizontal="10dp"
-        android:layout_toRightOf="@id/imgRecyclerView"
-        android:text="Author"
-        android:textColor="#555555"
-        android:textStyle="italic|bold" />
+        <ImageView
+            android:id="@+id/imgRecyclerView"
+            android:layout_width="80dp"
+            android:layout_height="120dp"
+            android:fadingEdge="vertical|horizontal"
+            android:src="@mipmap/ic_launcher" />
 
-    <TextView
-        android:id="@+id/txtRupeeSign"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/txtAuthor"
-        android:layout_marginLeft="30dp"
-        android:layout_toRightOf="@id/imgRecyclerView"
-        android:text=" "
-        android:textColor="@color/Green"
-        android:textSize="19sp" />
+        <TextView
+            android:id="@+id/txtRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_toRightOf="@id/imgRecyclerView"
+            android:padding="2dp"
+            android:text="List Item"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/txtPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/txtAuthor"
-        android:layout_marginLeft="7dp"
-        android:layout_toRightOf="@id/txtRupeeSign"
-        android:text="1000"
-        android:textColor="@color/Green"
-        android:textSize="18sp"
-        android:textStyle="italic" />
+        <TextView
+            android:id="@+id/txtAuthor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtRecyclerView"
+            android:layout_marginHorizontal="10dp"
+            android:layout_toRightOf="@id/imgRecyclerView"
+            android:text="Author"
+            android:textColor="#555555"
+            android:textStyle="italic|bold" />
+
+        <TextView
+            android:id="@+id/txtRupeeSign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtAuthor"
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@id/imgRecyclerView"
+            android:text=" "
+            android:textColor="@color/Green"
+            android:textSize="19sp" />
+
+        <TextView
+            android:id="@+id/txtPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtAuthor"
+            android:layout_marginLeft="7dp"
+            android:layout_toRightOf="@id/txtRupeeSign"
+            android:text="1000"
+            android:textColor="@color/Green"
+            android:textSize="18sp"
+            android:textStyle="italic" />
 
 
-</RelativeLayout>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
