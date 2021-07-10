@@ -26,6 +26,7 @@ import com.hiya7.bookhub.R
 import com.hiya7.bookhub.adapter.DashboardRecyclerAdapter
 import com.hiya7.bookhub.model.Book
 import com.hiya7.bookhub.util.ConnectionManager
+import org.json.JSONException
 
 class DashboardFragment : Fragment() {
 
@@ -147,55 +148,60 @@ class DashboardFragment : Fragment() {
                 object : JsonObjectRequest(Request.Method.GET, url, null, Response.Listener {
                     // handle the resposne
 
-                    val success = it.getBoolean("success")
+                    try {
 
-                    if (success) {
+                        val success = it.getBoolean("success")
 
-                        val data = it.getJSONArray("data")
-                        for (i in 0 until data.length()) {
-                            val bookJsonObject = data.getJSONObject(i)
-                            val bookObject = Book(
-                                bookJsonObject.getString("name"),
-                                bookJsonObject.getString("author"),
-                                bookJsonObject.getString("price"),
-                                bookJsonObject.getString("rating"),
-                                bookJsonObject.getString("image")
-                            )
+                        if (success) {
 
-                            bookInfoList.add(bookObject)
-
-                            recyclerAdapter = DashboardRecyclerAdapter(
-                                activity as Context,
-                                bookInfoList
-                            )
-
-                            recyclerDashboard.adapter = recyclerAdapter
-                            recyclerDashboard.layoutManager = layoutManager
-
-                            recyclerDashboard.addItemDecoration(
-                                DividerItemDecoration(
-                                    recyclerDashboard.context,
-                                    (layoutManager as LinearLayoutManager).orientation
+                            val data = it.getJSONArray("data")
+                            for (i in 0 until data.length()) {
+                                val bookJsonObject = data.getJSONObject(i)
+                                val bookObject = Book(
+                                    bookJsonObject.getString("name"),
+                                    bookJsonObject.getString("author"),
+                                    bookJsonObject.getString("price"),
+                                    bookJsonObject.getString("rating"),
+                                    bookJsonObject.getString("image")
                                 )
-                            )
+
+                                bookInfoList.add(bookObject)
+
+                                recyclerAdapter = DashboardRecyclerAdapter(
+                                    activity as Context,
+                                    bookInfoList
+                                )
+
+                                recyclerDashboard.adapter = recyclerAdapter
+                                recyclerDashboard.layoutManager = layoutManager
+
+                                recyclerDashboard.addItemDecoration(
+                                    DividerItemDecoration(
+                                        recyclerDashboard.context,
+                                        (layoutManager as LinearLayoutManager).orientation
+                                    )
+                                )
+
+                            }
+
+                        } else {
+
+                            Toast.makeText(
+                                activity as Context,
+                                "Some Error has Occured",
+                                Toast.LENGTH_SHORT
+                            ).show()
 
                         }
-
-                    } else {
-
-                        Toast.makeText(
-                            activity as Context,
-                            "Some Error has Occured",
-                            Toast.LENGTH_SHORT
-                        ).show()
-
+                    }catch (e : JSONException){
+                        Toast.makeText(activity as Context, "Some unexpected Error Occured ! ", Toast.LENGTH_SHORT).show()
                     }
 
 
                 }, Response.ErrorListener {
 
                     // handle the Errors
-                    println("Error is $it")
+                    Toast.makeText(activity as Context, "Volley Error Occured", Toast.LENGTH_SHORT).show()
 
                 }) {
 
