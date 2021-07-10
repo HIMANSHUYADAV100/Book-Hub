@@ -102,13 +102,6 @@ class DashboardFragment : Fragment() {
                                 recyclerDashboard.adapter = recyclerAdapter
                                 recyclerDashboard.layoutManager = layoutManager
 
-                                recyclerDashboard.addItemDecoration(
-                                    DividerItemDecoration(
-                                        recyclerDashboard.context,
-                                        (layoutManager as LinearLayoutManager).orientation
-                                    )
-                                )
-
                             }
 
                         } else {
