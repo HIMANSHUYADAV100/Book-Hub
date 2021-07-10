@@ -144,7 +144,7 @@ class DashboardFragment : Fragment() {
 
         val queue = Volley.newRequestQueue(activity as Context)
 
-        val url = "http://13.235.250.119/vl/book/fetch_books/"
+        val url = "http://13.235.250.119/v1/book/fetch_books/"
 
         val jsonObjectRequest =
             object : JsonObjectRequest(Request.Method.GET, url, null, Response.Listener {
