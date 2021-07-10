@@ -149,11 +149,24 @@ class DashboardFragment : Fragment() {
         val jsonObjectRequest =
             object : JsonObjectRequest(Request.Method.GET, url, null, Response.Listener {
                 // handle the resposne
+                println("Response is $it")
+
             }, Response.ErrorListener {
 
                 // handle the Errors
+                println("Error is $it")
 
             }) {
+
+                override fun getHeaders(): MutableMap<String, String> {
+
+                    val headers = HashMap<String, String> ()
+                    headers["Content-type"] = "application/json"
+                    headers["token"] = "2774371f1180aa"
+
+                    return headers
+                }
+
 
             }
 
