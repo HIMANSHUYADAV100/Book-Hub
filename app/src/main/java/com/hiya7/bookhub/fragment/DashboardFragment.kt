@@ -154,6 +154,7 @@ class DashboardFragment : Fragment() {
                             bookJsonObject.getString("name"),
                             bookJsonObject.getString("author"),
                             bookJsonObject.getString("price"),
+                            bookJsonObject.getString("rating"),
                             bookJsonObject.getString("image")
                         )
 
