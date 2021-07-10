@@ -146,7 +146,6 @@ class DashboardFragment : Fragment() {
             val jsonObjectRequest =
                 object : JsonObjectRequest(Request.Method.GET, url, null, Response.Listener {
                     // handle the resposne
-                    println("Response is $it")
 
                     val success = it.getBoolean("success")
 
