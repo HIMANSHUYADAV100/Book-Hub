@@ -15,5 +15,7 @@
     <string name="profile_fragment">Profile Fragment</string>
     <string name="about_app_fragment">About App Fragment</string>
     <string name="himanshu_yadav">Himanshu Yadav</string>
+    <string name="about_the_book">About the Book</string>
+    <string name="description_of_the_book">Description of the book</string>
 
 </resources>
