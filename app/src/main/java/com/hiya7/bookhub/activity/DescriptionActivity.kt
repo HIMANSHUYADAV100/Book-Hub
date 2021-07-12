@@ -41,8 +41,6 @@ class DescriptionActivity : AppCompatActivity() {
         progressBar = findViewById(R.id.progressBar)
         progressBar.visibility = View.VISIBLE
 
-
-
         if (intent != null) {
             bookId = intent.getStringExtra("book_id")
 

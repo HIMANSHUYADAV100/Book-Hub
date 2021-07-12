@@ -73,6 +73,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/txtBookAuthor"
                         android:padding="8dp"
+                        android:layout_marginBottom="4dp"
                         android:text="Rs. 299"
                         android:textColor="@color/Green"
                         android:textSize="16sp"
