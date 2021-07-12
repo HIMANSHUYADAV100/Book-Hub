@@ -1,6 +1,7 @@
 package com.hiya7.bookhub.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.hiya7.bookhub.R
+import com.hiya7.bookhub.activity.DescriptionActivity
 import com.hiya7.bookhub.model.Book
 import com.squareup.picasso.Picasso
 
@@ -48,11 +50,16 @@ class DashboardRecyclerAdapter(val context: Context, val itemList: ArrayList<Boo
         holder.authView.text = auth
         holder.priceView.text = price
 
+
         Picasso.get().load(image).error(R.drawable.book_app_icon_web).into(holder.imageView);
         //holder.imageView.setImageResource(image)
 
         holder.llContent.setOnClickListener {
-            Toast.makeText(context, "Clicked on ${holder.textView.text}", Toast.LENGTH_SHORT).show()
+            // WHEN CLICKED ON BOOKS
+
+            val intent = Intent(context, DescriptionActivity::class.java)
+            intent.putExtra("book_id", itemList[position].book_Id)
+            context.startActivity(intent)
         }
     }
 

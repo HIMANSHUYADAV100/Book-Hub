@@ -46,7 +46,6 @@ class DashboardFragment : Fragment() {
     var bookInfoList = arrayListOf<Book>()
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -89,7 +88,8 @@ class DashboardFragment : Fragment() {
                                     bookJsonObject.getString("author"),
                                     bookJsonObject.getString("price"),
                                     bookJsonObject.getString("rating"),
-                                    bookJsonObject.getString("image")
+                                    bookJsonObject.getString("image"),
+                                    bookJsonObject.getString("book_id")
                                 )
 
                                 bookInfoList.add(bookObject)

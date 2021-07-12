@@ -5,5 +5,6 @@ data class Book(
     val bookAuthor: String,
     val bookCost: String,
     val bookRating: String,
-    val bookImage: String
+    val bookImage: String,
+    val book_Id: String
 )
