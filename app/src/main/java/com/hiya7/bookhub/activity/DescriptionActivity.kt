@@ -1,7 +1,9 @@
 package com.hiya7.bookhub.activity
 
 import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
+import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
@@ -17,6 +19,9 @@ import org.json.JSONObject
 import java.lang.Exception
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
+import androidx.room.Room
+import com.hiya7.bookhub.database.BookDatabase
+import com.hiya7.bookhub.database.BookEntity
 import com.hiya7.bookhub.util.ConnectionManager
 
 class DescriptionActivity : AppCompatActivity() {
@@ -162,6 +167,43 @@ class DescriptionActivity : AppCompatActivity() {
             dialog2.show()
 
         }
+    }
+
+
+    class DBAsyncTask(val context: Context, val bookEntity: BookEntity, val mode: Int) :
+        AsyncTask<Void, Void, Boolean>() {
+
+        val db = Room.databaseBuilder(context, BookDatabase::class.java, "books-db").build()
+
+        // check if book is fav M1, save book as fav M2 & remove book from fav M3
+        override fun doInBackground(vararg p0: Void?): Boolean {
+
+            when (mode) {
+
+                1 -> {
+                    val book: BookEntity? = db.bookDao().getBookById(bookEntity.book_id.toString())
+                    db.close()
+                    return book != null
+                }
+
+                2 -> {
+                    db.bookDao().insertBook(bookEntity)
+                    db.close()
+                    return true
+                }
+
+                3 -> {
+                    db.bookDao().deleteBook(bookEntity)
+                    db.close()
+                    return true
+                }
+            }
+
+            return false
+        }
+
 
     }
+
+
 }
