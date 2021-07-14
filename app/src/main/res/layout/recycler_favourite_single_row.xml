@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/recycler_dashboard_single_row"
+    android:id="@+id/recycler_favourite_single_row"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="6dp" >
@@ -43,7 +43,7 @@
         android:textSize="24sp"/>
 
     <TextView
-        android:id="@+id/txtPrice"
+        android:id="@+id/txtPriceFav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/txtAuthorFav"
@@ -52,6 +52,5 @@
         android:textAlignment="center"
         android:textColor="@color/Green"
         android:textSize="22sp" />
-
 
 </RelativeLayout>

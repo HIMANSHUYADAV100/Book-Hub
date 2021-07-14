@@ -3,25 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.FavouritesFragment"
-    android:background="@drawable/bmoon">
+    tools:context=".fragment.FavouritesFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/txtFavourites"
-        android:layout_width="wrap_content"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerFavourite"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/favourites_fragment"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        android:textColorHighlight="@color/teal_700"
-        android:textColorHint="@color/purple_700"
-        android:layout_centerHorizontal="true"
-        android:textIsSelectable="false"
-        android:textColor="@color/white"
-        android:fontFamily="serif-monospace"
-        android:layout_marginTop="56dp"
-        android:textSize="50sp"
-        android:padding="10dp"/>
+        android:layout_marginTop="2dp"
+        >
+
+
+
+
+
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 </RelativeLayout>
