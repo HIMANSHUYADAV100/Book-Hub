@@ -1,6 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/recycler_dashboard_single_row"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp" >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/imgFavRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_centerHorizontal="true"
+        android:background="#C8C7C7"
+        android:padding="6dp"
+        android:src="@drawable/book_app_icon_web"/>
+
+    <TextView
+        android:id="@+id/txtFavRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgFavRecyclerView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="2dp"
+        android:padding="2dp"
+        android:text="Hello World"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtAuthorFav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtFavRecyclerView"
+        android:layout_marginHorizontal="15sp"
+        android:layout_marginBottom="8dp"
+        android:text="Android Inc"
+        android:textAlignment="center"
+        android:textColor="@color/GreyBC"
+        android:textSize="24sp"/>
+
+    <TextView
+        android:id="@+id/txtPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtAuthorFav"
+        android:layout_marginLeft="7dp"
+        android:text="Rs. 1000"
+        android:textAlignment="center"
+        android:textColor="@color/Green"
+        android:textSize="22sp" />
+
+
+</RelativeLayout>
