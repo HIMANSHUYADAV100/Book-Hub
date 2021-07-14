@@ -110,17 +110,19 @@
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnAddToFav"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:minHeight="40dp"
                     android:layout_below="@id/txtBookDesc"
                     android:layout_alignParentBottom="true"
-                    android:background="@color/teal_700"
                     android:text="@string/add_to_favourites"
                     android:textColor="@color/white"
                     android:textSize="19sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+
+                    />
 
             </RelativeLayout>
 
