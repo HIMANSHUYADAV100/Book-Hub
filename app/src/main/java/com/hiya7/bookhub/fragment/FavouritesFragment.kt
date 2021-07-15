@@ -34,7 +34,7 @@ class FavouritesFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_favourites, container, false)
 
-        recyclerFavourite = R.layout.recycler_favourite_single_row as RecyclerView
+        recyclerFavourite = view.findViewById(R.id.recyclerFavourite)
         progressLayout = view.findViewById(R.id.progressLayout)
         progressBar = view.findViewById(R.id.progressBar)
 
