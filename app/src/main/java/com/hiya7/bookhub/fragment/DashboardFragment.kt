@@ -33,14 +33,9 @@ import org.json.JSONException
 class DashboardFragment : Fragment() {
 
     lateinit var recyclerDashboard: RecyclerView
-
     lateinit var layoutManager: RecyclerView.LayoutManager
-
     lateinit var progressLayout: RelativeLayout
-
     lateinit var progressBar: ProgressBar
-
-
     lateinit var recyclerAdapter: DashboardRecyclerAdapter
 
     var bookInfoList = arrayListOf<Book>()
@@ -54,11 +49,8 @@ class DashboardFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_dashboard, container, false)
 
         recyclerDashboard = view.findViewById(R.id.recyclerDashboard)
-
         progressLayout = view.findViewById(R.id.progressLayout)
-
         progressBar = view.findViewById(R.id.progressBar)
-
         progressLayout.visibility = View.VISIBLE
 
         layoutManager = LinearLayoutManager(activity)
