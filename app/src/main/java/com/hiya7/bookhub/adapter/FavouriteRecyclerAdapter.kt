@@ -55,7 +55,8 @@ class FavouriteRecyclerAdapter(val context: Context, val bookList: List<BookEnti
         holder.llContent.setOnClickListener {
 
             val intent = Intent(context, DescriptionActivity::class.java)
-            intent.putExtra("book_id", book.book_id)
+            val bid = book.book_id.toString()
+            intent.putExtra("book_id", bid)
             context.startActivity(intent)
         }
 

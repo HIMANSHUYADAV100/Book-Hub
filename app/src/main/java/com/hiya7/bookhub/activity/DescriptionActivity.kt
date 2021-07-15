@@ -162,7 +162,7 @@ class DescriptionActivity : AppCompatActivity() {
                                     } else {
                                         Toast.makeText(
                                             this@DescriptionActivity,
-                                            "Some error Occured",
+                                            "Some error Occured 1",
                                             Toast.LENGTH_SHORT
                                         ).show()
                                     }
@@ -171,6 +171,7 @@ class DescriptionActivity : AppCompatActivity() {
                                     val async =
                                         DBAsyncTask(applicationContext, bookEntity, 3).execute()
                                     val result = async.get()
+
                                     if (result) {
 
                                         Toast.makeText(
@@ -188,7 +189,7 @@ class DescriptionActivity : AppCompatActivity() {
                                     } else {
                                         Toast.makeText(
                                             this@DescriptionActivity,
-                                            "Some error Occured",
+                                            "Some error Occured 2",
                                             Toast.LENGTH_SHORT
                                         ).show()
                                     }
@@ -201,7 +202,7 @@ class DescriptionActivity : AppCompatActivity() {
                         } else {
                             Toast.makeText(
                                 this@DescriptionActivity,
-                                "Some Error Occured",
+                                "Some Error Occured 3",
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
@@ -209,7 +210,7 @@ class DescriptionActivity : AppCompatActivity() {
                     } catch (e: Exception) {
                         Toast.makeText(
                             this@DescriptionActivity,
-                            "Some Error Occured",
+                            "Some Error Occured 4",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
