@@ -27,6 +27,9 @@ import com.hiya7.bookhub.adapter.DashboardRecyclerAdapter
 import com.hiya7.bookhub.model.Book
 import com.hiya7.bookhub.util.ConnectionManager
 import org.json.JSONException
+import java.util.*
+import kotlin.Comparator
+import kotlin.collections.HashMap
 
 class DashboardFragment : Fragment() {
 
@@ -37,6 +40,10 @@ class DashboardFragment : Fragment() {
     lateinit var recyclerAdapter: DashboardRecyclerAdapter
 
     var bookInfoList = arrayListOf<Book>()
+
+    var nameComparator = Comparator<Book> { book1, book2 ->
+        book1.bookName.compareTo(book2.bookName, true)
+    }
 
 
     override fun onCreateView(
@@ -169,6 +176,18 @@ class DashboardFragment : Fragment() {
 
         inflater?.inflate(R.menu.menu_dashboard, menu)
 
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        val id = item.itemId
+        if(id == R.id.action_sort){
+            Collections.sort(bookInfoList, nameComparator)
+        }
+
+        recyclerAdapter.notifyDataSetChanged()
+
+        return super.onOptionsItemSelected(item)
     }
 
 }
