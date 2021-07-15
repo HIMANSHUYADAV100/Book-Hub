@@ -1,6 +1,7 @@
 package com.hiya7.bookhub.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.hiya7.bookhub.R
+import com.hiya7.bookhub.activity.DescriptionActivity
 import com.hiya7.bookhub.database.BookEntity
 import com.squareup.picasso.Picasso
 
@@ -43,11 +45,19 @@ class FavouriteRecyclerAdapter(val context: Context, val bookList: List<BookEnti
 
         val book = bookList[position]
 
+
         holder.txtBookName.text = book.bookName
         holder.txtBookAuthor.text = book.bookAuthor
         holder.txtBookPrice.text = book.bookPrice
 
         Picasso.get().load(book.bookImage).error(R.drawable.book_app_icon_web).into(holder.imgBookImage)
+
+        holder.llContent.setOnClickListener {
+
+            val intent = Intent(context, DescriptionActivity::class.java)
+            intent.putExtra("book_id", book.book_id)
+            context.startActivity(intent)
+        }
 
     }
 
