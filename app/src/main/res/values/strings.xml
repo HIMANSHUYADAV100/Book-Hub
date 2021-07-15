@@ -18,5 +18,6 @@
     <string name="about_the_book">About the Book</string>
     <string name="description_of_the_book">Description of the book</string>
     <string name="add_to_favourites">Add to Favourites</string>
+    <string name="sort">Sort</string>
 
 </resources>
